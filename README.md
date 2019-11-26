@@ -2,10 +2,7 @@
 
 This repo includes text and code relating to the Artie Bias Corpus, and is intended for detecting demographic bias in ASR systems.
 
-# How to Run Bias Detection
-
-
-## Requirements
+### Requirements
 
 You need three things to use this code:
 
@@ -14,15 +11,13 @@ You need three things to use this code:
 3. The `detect_bias.py` script.
 
 
-## What is Possible
+### What is Possible with this Code
 
 - Detect bias in a single model between two demographic groups.
 - Compare two models in their performance on a single demographic group.
 
 
-## Run the Code
-
-### Set up a Virtual Enironment
+## How to Run the Code
 
 We recommend using a virtual environment to make life easier.
 
@@ -31,16 +26,15 @@ $ python3 -m venv artie
 $ source artie/bin/activate
 (artie) $ pip install -r requirements.txt
 ```
+Once you have the proper environment, you can perform the following two analyses on any models and demographics in the corpus:
 
-### Examples
-
-- Finding bias in men vs. women in a single model:
+1. Finding bias in a single model (male vs female):
 
 ```
 (artie) $ python detect_bias.py "artie-bias-corpus.tsv" "word" "model_A_predictions.tsv" "male,female"
 ```
 
-- Finding difference between two models on women:
+2. Finding difference between two models (for female voices):
 
 ```
 (artie) $ python detect_bias.py "artie-bias-corpus.tsv" "word" "model_A_predictions.tsv,model_B_predictions.tsv" "female"
