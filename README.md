@@ -13,8 +13,8 @@ You need three things to use this code:
 
 ### What is Possible with this Code
 
-- Detect bias in a single model between two demographic groups.
-- Compare two models in their performance on a single demographic group.
+1. Detect bias in a single model between two demographic groups.
+2. Compare two models in their performance on a single demographic group.
 
 
 ## How to Run the Code
@@ -43,7 +43,7 @@ Once you have the proper environment, you can perform the following two analyses
 
 ## Your Model Predictions Format
 
-When you provide the predictions of your model(s) on the Artie Bias Corpus, those files should be two-columns and contain Tab Separated Values (TSV). The header for the first column should be ``path'' and the header for the second column should be ``prediction''.
+When you provide the predictions of your model(s) on the Artie Bias Corpus, those files should be two-columns and contain Tab Separated Values (TSV). The header for the first column should be ``path'' and the header for the second column should be ``prediction''. Take a look at the included predictions in the `predictions` directory for an example.
 
 ```
 $ head model_A_predictions.tsv
@@ -59,19 +59,19 @@ common_voice_en_479225.wav	a boy or two as parlors
 common_voice_en_191986.wav	a boy is hanging on monkey bears
 ```
 
-## Verifying your setup
+### Verifying your setup
 
-Run the `test.sh` script from within the `misc` directory.
-
-```
-misc$ ./test.sh model_A_predictions.tsv
+To test your setup, run the `test.sh` script from within the `misc` directory on the included predictions:
 
 ```
+misc$ ./test.sh ../predictions/official-v0.5.1-predictions.tsv
 
-If you see only ``PASS'', you're OK. If you see some ``FAIL''s, dig into the `test.sh` script identify the problem.
+```
+
+If you see only ``PASS'' you're OK. If you see some ``FAIL''s, you will need to dig into the `test.sh` script identify the problem.
 
 
-# How We make Artie Bias Corpus 
+# How we made the Artie Bias Corpus 
 
 We took two main steps to create the ABC. First we filtered data of interest from Common Voice. Second, we re-validated the data.
 
@@ -90,15 +90,13 @@ We took two main steps to create the ABC. First we filtered data of interest fro
 
 Additionally, we removed 24 clips given other concerns. 22 clips were removed based on concerns that the speakers were not over 18 years old. 1 clip was removed because the user sang the sentence, and 1 clip was removed for problematic content of the text.
 
-## Stats on Artie Bias Corpus
-
-## Total Clips
+### Total number of Clips
 ```
 1712 utterances
 970 speakers
 ```
 
-## Age
+### Ages
 ```
 $ cut -d"   " -f 6 artie-bias-corpus.tsv | sort | uniq -c
     101 fifties
@@ -112,7 +110,7 @@ $ cut -d"   " -f 6 artie-bias-corpus.tsv | sort | uniq -c
     827 twenties
 ```
 
-## Gender
+### Genders
 ```
 $ cut -d"   " -f 7 artie-bias-corpus.tsv | sort | uniq -c
     257 female
@@ -122,7 +120,7 @@ $ cut -d"   " -f 7 artie-bias-corpus.tsv | sort | uniq -c
       4 other
 ```
 
-## Accent
+### Accents
 ```
 $ cut -d"   " -f 8 artie-bias-corpus.tsv | sort | uniq -c
      24 african
@@ -145,10 +143,7 @@ $ cut -d"   " -f 8 artie-bias-corpus.tsv | sort | uniq -c
       3 wales
 ```
 
-
-
-
-## Artie Bias Corpus Format
+### Artie Bias Corpus Format
 
 You should use the provided ``artie-bias-corpus.tsv'' file provided in this repo.
 
