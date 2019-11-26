@@ -1,0 +1,8 @@
+*~
+venv*
+*.bbl
+*.log
+*.aux
+*.out
+*.blg
+lrec-paper/*.pdf
