@@ -43,7 +43,7 @@ Once you have the proper environment, you can perform the following two analyses
 
 ## Your Model Predictions Format
 
-When you provide the predictions of your model(s) on the Artie Bias Corpus, those files should be two-columns and contain Tab Separated Values (TSV). The header for the first column should be ``path'' and the header for the second column should be ``prediction''. Take a look at the included predictions in the `predictions` directory for an example.
+When you provide the predictions of your model(s) on the Artie Bias Corpus, those files should be two-columns and contain Tab Separated Values (TSV). The header for the first column should be `"path"` and the header for the second column should be `"prediction"`. Take a look at the included predictions in the `predictions` directory for an example.
 
 ```
 $ head model_A_predictions.tsv
@@ -68,7 +68,7 @@ misc$ ./test.sh ../predictions/official-v0.5.1-predictions.tsv
 
 ```
 
-If you see only ``PASS'' you're OK. If you see some ``FAIL''s, you will need to dig into the `test.sh` script identify the problem.
+If you see only `PASS` you're OK. If you see some `FAIL`s, you will need to dig into the `test.sh` script identify the problem.
 
 
 # How we made the Artie Bias Corpus 
@@ -145,7 +145,7 @@ $ cut -d"   " -f 8 artie-bias-corpus.tsv | sort | uniq -c
 
 ### Artie Bias Corpus Format
 
-You should use the provided ``artie-bias-corpus.tsv'' file provided in this repo.
+You should use the provided `artie-bias-corpus.tsv` file provided in this repo. It has the following column structure:
 
 ```
 client_id	path	sentence	up_votes	down_votes	age	gender	accent
