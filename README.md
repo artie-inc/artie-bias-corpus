@@ -1,20 +1,30 @@
-# How To Detect Bias with the Artie Bias Corpus
+# Artie Bias Corpus
 
-You need three things:
+This repo includes text and code relating to the Artie Bias Corpus, and is intended for detecting demographic bias in ASR systems.
 
-1. The `artie-bias-corpus.tsv` file of ground-truth transcriptions
-2. The predictions from your model for the audio of the Artie Bias Corpus
-3. The `detect_bias.py` script
+# How to Run Bias Detection
+
+
+## Requirements
+
+You need three things to use this code:
+
+1. Your ASR model's predictions on the audio of the Artie Bias Corpus.
+2. The `artie-bias-corpus.tsv` file of ground-truth transcriptions.
+3. The `detect_bias.py` script.
+
 
 ## What is Possible
 
-- Detect bias in a model with regards to the performance between two demographic groups.
+- Detect bias in a single model between two demographic groups.
 - Compare two models in their performance on a single demographic group.
 
 
-## Set up a Virtual Enironment
+## Run the Code
 
-We recommend using a virtual environment to make using this script easier.
+### Set up a Virtual Enironment
+
+We recommend using a virtual environment to make life easier.
 
 ```
 $ python3 -m venv artie
@@ -22,8 +32,7 @@ $ source artie/bin/activate
 (artie) $ pip install -r requirements.txt
 ```
 
-
-## Examples
+### Examples
 
 - Finding bias in men vs. women in a single model:
 
@@ -56,6 +65,95 @@ common_voice_en_479225.wav	a boy or two as parlors
 common_voice_en_191986.wav	a boy is hanging on monkey bears
 ```
 
+## Verifying your setup
+
+Run the `test.sh` script from within the `misc` directory.
+
+```
+misc$ ./test.sh model_A_predictions.tsv
+
+```
+
+If you see only ``PASS'', you're OK. If you see some ``FAIL''s, dig into the `test.sh` script identify the problem.
+
+
+# How We make Artie Bias Corpus 
+
+We took two main steps to create the ABC. First we filtered data of interest from Common Voice. Second, we re-validated the data.
+
+## Filtering Common Voice 
+
+- Download and extract the Common Voice release / language of interest.
+- Identify the `test.tsv`.
+- Filter only utterances with `age` OR `gender` OR `accent`.
+- Replace blank entries with `NA` (because `pandas`).
+
+## Artie Validation
+
+- Annotators were trained using the validation criteria found in `misc/VALIDATION_CRITERIA.md`.
+- The subset of clips resulting from the previous step was validated via a fork of the Common Voice web-app.
+- Clips receiving less than two out of three upvotes were discarded from the corpus.
+
+Additionally, we removed 24 clips given other concerns. 22 clips were removed based on concerns that the speakers were not over 18 years old. 1 clip was removed because the user sang the sentence, and 1 clip was removed for problematic content of the text.
+
+## Stats on Artie Bias Corpus
+
+## Total Clips
+```
+1712 utterances
+970 speakers
+```
+
+## Age
+```
+$ cut -d"   " -f 6 artie-bias-corpus.tsv | sort | uniq -c
+    101 fifties
+    152 fourties
+     14 NA
+      1 nineties
+     18 seventies
+     46 sixties
+    187 teens
+    366 thirties
+    827 twenties
+```
+
+## Gender
+```
+$ cut -d"   " -f 7 artie-bias-corpus.tsv | sort | uniq -c
+    257 female
+      1 gender
+   1431 male
+     20 NA
+      4 other
+```
+
+## ACCENT
+```
+$ cut -d"   " -f 8 artie-bias-corpus.tsv | sort | uniq -c
+     24 african
+     19 australia
+     10 bermuda
+     42 canada
+    131 england
+     10 hongkong
+    264 indian
+     21 ireland
+      9 malaysia
+    562 NA
+     11 newzealand
+     24 other
+      7 philippines
+     12 scotland
+      2 singapore
+      3 southatlandtic
+    558 us
+      3 wales
+```
+
+
+
+
 ## Artie Bias Corpus Format
 
 You should use the provided ``artie-bias-corpus.tsv'' file provided in this repo.
@@ -71,12 +169,4 @@ client_id	path	sentence	up_votes	down_votes	age	gender	accent
 08d5df578ef5c27af11465120a91b016ad09e4d6f9bfb01860f65c16b125349755b03a995e9cbe07e1cf5bfdd69da45249368a2b4653350591b2f24153b12d41	common_voice_en_459460.mp3	What game do you want to play?	2	0	twenties	male	NA
 093580a6c59fa73c86513a8a98ce889f6418871e62b673ee1b42f771bb00bfa4a3113b7132c114db2e9508e82470ff1c2b24596287d2b03b70d010163300006f	common_voice_en_18506358.mp3	Are the main galleries any good?	2	0	twenties	male	indian
 0cc15679f23808650907f621dcc48e480516aebf6bfc0aee186de287f2ce87581ca9380529569f95fb46f885ee817d3902bb70a8f1a96b86415a59e76c356b48	common_voice_en_18171738.mp3	What do you know about him?	2	0	teens	female	us
-```
-
-## Verifying your setup
-
-Run the `test.sh` script from within the `stats/` directory.
-
-```
-$ ./stats.sh
 ```
