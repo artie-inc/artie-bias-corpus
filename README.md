@@ -128,7 +128,7 @@ $ cut -d"   " -f 7 artie-bias-corpus.tsv | sort | uniq -c
       4 other
 ```
 
-## ACCENT
+## Accent
 ```
 $ cut -d"   " -f 8 artie-bias-corpus.tsv | sort | uniq -c
      24 african
