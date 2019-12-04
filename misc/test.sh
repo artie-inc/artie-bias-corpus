@@ -1,7 +1,5 @@
 #!/bin/bash
 
-USER_PREDICTIONS=$1
-
 python3 -m venv /tmp/venv
 source /tmp/venv/bin/activate
 pip install -r ../requirements.txt
@@ -22,12 +20,12 @@ python ../detect_bias.py ../artie-bias-corpus.tsv "char" "foo" "male,female" >/t
 
 echo "BEGIN *DOUBLE* MODEL TESTS"
 #double model pass
-python ../detect_bias.py ../artie-bias-corpus.tsv "char" "../predictions/official-v0.5.1-predictions.tsv,${USER_PREDICTIONS}" female >/tmp/log; if [ $? -eq 0 ]; then echo "PASS"; else echo "FAIL"; fi;
-python ../detect_bias.py ../artie-bias-corpus.tsv "word" "../predictions/official-v0.5.1-predictions.tsv,${USER_PREDICTIONS}" male >/tmp/log; if [ $? -eq 0 ]; then echo "PASS"; else echo "FAIL"; fi;
-python ../detect_bias.py ../artie-bias-corpus.tsv "char" "../predictions/official-v0.5.1-predictions.tsv,${USER_PREDICTIONS}" us >/tmp/log; if [ $? -eq 0 ]; then echo "PASS"; else echo "FAIL"; fi;
-python ../detect_bias.py ../artie-bias-corpus.tsv "word" "../predictions/official-v0.5.1-predictions.tsv,${USER_PREDICTIONS}" indian >/tmp/log; if [ $? -eq 0 ]; then echo "PASS"; else echo "FAIL"; fi;
+python ../detect_bias.py ../artie-bias-corpus.tsv "char" "../predictions/official-v0.5.1-predictions.tsv,../predictions/official-v0.6.0-predictions.tsv" female >/tmp/log; if [ $? -eq 0 ]; then echo "PASS"; else echo "FAIL"; fi;
+python ../detect_bias.py ../artie-bias-corpus.tsv "word" "../predictions/official-v0.5.1-predictions.tsv,../predictions/official-v0.6.0-predictions.tsv" male >/tmp/log; if [ $? -eq 0 ]; then echo "PASS"; else echo "FAIL"; fi;
+python ../detect_bias.py ../artie-bias-corpus.tsv "char" "../predictions/official-v0.5.1-predictions.tsv,../predictions/official-v0.6.0-predictions.tsv" us >/tmp/log; if [ $? -eq 0 ]; then echo "PASS"; else echo "FAIL"; fi;
+python ../detect_bias.py ../artie-bias-corpus.tsv "word" "../predictions/official-v0.5.1-predictions.tsv,../predictions/official-v0.6.0-predictions.tsv" indian >/tmp/log; if [ $? -eq 0 ]; then echo "PASS"; else echo "FAIL"; fi;
 #double model fail
-python ../detect_bias.py ../artie-bias-corpus.tsv "foo" "../predictions/official-v0.5.1-predictions.tsv,${USER_PREDICTIONS}" female >/tmp/log; if [ $? -eq 1 ]; then echo "PASS"; else echo "FAIL"; fi;
-python ../detect_bias.py ../artie-bias-corpus.tsv "char" "../predictions/official-v0.5.1-predictions.tsv,${USER_PREDICTIONS}" "female,male" >/tmp/log; if [ $? -eq 1 ]; then echo "PASS"; else echo "FAIL"; fi;
+python ../detect_bias.py ../artie-bias-corpus.tsv "foo" "../predictions/official-v0.5.1-predictions.tsv,../predictions/official-v0.6.0-predictions.tsv" female >/tmp/log; if [ $? -eq 1 ]; then echo "PASS"; else echo "FAIL"; fi;
+python ../detect_bias.py ../artie-bias-corpus.tsv "char" "../predictions/official-v0.5.1-predictions.tsv,../predictions/official-v0.6.0-predictions.tsv" "female,male" >/tmp/log; if [ $? -eq 1 ]; then echo "PASS"; else echo "FAIL"; fi;
 python ../detect_bias.py ../artie-bias-corpus.tsv "word" "../predictions/official-v0.5.1-predictions.tsv,foo" "female,male" >/tmp/log; if [ $? -eq 1 ]; then echo "PASS"; else echo "FAIL"; fi;
-python ../detect_bias.py ../artie-bias-corpus.tsv "word" "../predictions/official-v0.5.1-predictions.tsv,${USER_PREDICTIONS}" foo >/tmp/log; if [ $? -eq 1 ]; then echo "PASS"; else echo "FAIL"; fi;
+python ../detect_bias.py ../artie-bias-corpus.tsv "word" "../predictions/official-v0.5.1-predictions.tsv,../predictions/official-v0.6.0-predictions.tsv" foo >/tmp/log; if [ $? -eq 1 ]; then echo "PASS"; else echo "FAIL"; fi;
