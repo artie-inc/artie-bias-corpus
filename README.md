@@ -61,11 +61,10 @@ common_voice_en_191986.wav	a boy is hanging on monkey bears
 
 ### Verifying your setup
 
-To test your setup, run the `test.sh` script from within the `misc` directory on the included predictions:
+To test your setup, run the `test.sh` script from within the `misc` directory.
 
 ```
-misc$ ./test.sh ../predictions/official-v0.5.1-predictions.tsv
-
+misc$ ./test.sh
 ```
 
 If you see only `PASS` you're OK. If you see some `FAIL`s, you will need to dig into the `test.sh` script identify the problem.
