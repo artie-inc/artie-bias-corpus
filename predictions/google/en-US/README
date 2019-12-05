@@ -1,0 +1,10 @@
+# en-US
+
+- 36 of clips were returned with empty JSON objects (Dec 4, 2019)
+-- these 36 clips were decoded again (Dec 5, 2019), in case there was a connectivity issue, but they returned again as empty JSON. According to the Google Speech API docs: "If no speech from the supplied audio could be recognized, then the returned results list will contain no items. Unrecognized speech is commonly the result of very poor-quality audio, or from language code, encoding, or sample rate values that do not match the supplied audio." <https://cloud.google.com/speech-to-text/docs/basics#synchronous-recognition>
+
+- numbers were replaced with text in the transcripts (e.g. 2023)
+-- Josh replaced each number by listening to the corresponding audio and verifying what was recognized (e.g 2023 was either "two thousand twenty-three" or "twenty twenty-three". If numbers were misrecognized, (e.g. 124 instead of "won 24") the word was written as google heard it (e.g. "one" instead of "won").
+
+- one punctuation mark was written out
+-- "30%" was changed to "thirty percent"
