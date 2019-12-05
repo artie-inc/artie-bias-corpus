@@ -1,0 +1,4 @@
+# en-US
+
+- 36 of clips were returned with empty JSON objects.
+-- these 36 clips were decoded again on Dec 5th, in case there was a connectivity issue, but they returned again as empty JSON. According to the Google Speech API docs: "If no speech from the supplied audio could be recognized, then the returned results list will contain no items. Unrecognized speech is commonly the result of very poor-quality audio, or from language code, encoding, or sample rate values that do not match the supplied audio." <https://cloud.google.com/speech-to-text/docs/basics#synchronous-recognition>

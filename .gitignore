@@ -6,3 +6,4 @@ venv*
 *.out
 *.blg
 lrec-paper/*.pdf
+artie/*
