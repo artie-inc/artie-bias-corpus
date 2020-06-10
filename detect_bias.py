@@ -180,7 +180,7 @@ def plot_demographic_error(df, unit, demographic, user_file):
 
     demographic_class = get_demographic_class(demographic)
     
-    demo_df = df.groupby([demographic_class])[unit+'_dist', unit+'_len'].sum()
+    demo_df = df.groupby([demographic_class])[[unit+'_dist', unit+'_len']].sum()
     demo_df[unit+'_error_rate'] = demo_df.apply(get_error_rate, axis=1, unit=unit)
     ax = demo_df.sort_values(unit+'_error_rate').plot.bar(y=unit+'_error_rate', rot=0)
     plt.title('Effect of *' + demographic_class.upper() + '* on '
