@@ -191,21 +191,21 @@ def plot_demographic_error(df, unit, demographic, user_file):
 
         
 def print_args_error(error):
-    print("\n","ERROR: `detect_bias.py` requires **four** positional arguments, at least one of them is", error) 
+    print("\n","ERROR: `detect_bias.py` requires **three** positional arguments, at least one of them is", error) 
 
     print(
         '''
         Usage: detect_bias.py ARTIE_CORPUS UNIT PREDICTIONS DEMOGRAPHIC
         
-        ARTIE_CORPUS: string: the path to the artie_corpus.tsv file provided in this repo.
-        UNIT:         string: 'word' for Word Error Rate comparison, and 'char' for Character Error Rate comparison.
+        ARTIE_CORPUS: string: the path to the artie-bias-corpus.tsv file provided in this repo under data/.
         PREDICTIONS:  string: prediction TSV(s) for the models you wish to compare. If more than one, then comma-separated
         DEMOGRAPHIC:  string: the demographic(s) used for comparison.  If more than one, then comma-separated
                               ['male', 'female', 'indian', 'england', 'twenties', 
                                'thirties', etc. - consult the README for a full list]
 
-        e.g.:  $ python detect_bias.py "artie-corpus.tsv" "word" "model_A_predictions.tsv,model_B_predictions.tsv" "female"
-        ''' 
+        e.g.:  $ ./detect_bias.py "artie-bias-corpus.tsv" "your-model-predictions.tsv" "male,female"
+        '''
+        #UNIT:         string: 'word' for Word Error Rate comparison, and 'char' for Character Error Rate comparison.
     )
 
 
@@ -239,9 +239,9 @@ if __name__ == '__main__':
 
     try:
         artie_data = sys.argv[1]
-        unit = sys.argv[2]
-        user_files = [ i.strip() for i in str(sys.argv[3]).split(",") ]
-        demographics = [ i.strip() for i in str(sys.argv[4]).split(",") ]
+        user_files = [ i.strip() for i in str(sys.argv[2]).split(",") ]
+        demographics = [ i.strip() for i in str(sys.argv[3]).split(",") ]
+        unit = "word" # TODO make this an optional CL arg
     except IndexError:
         print_args_error("missing")
         exit(1)
