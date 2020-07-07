@@ -195,7 +195,7 @@ def print_args_error(error):
 
     print(
         '''
-        Usage: detect_bias.py ARTIE_CORPUS UNIT PREDICTIONS DEMOGRAPHIC
+        Usage: detect_bias.py ARTIE_CORPUS PREDICTIONS DEMOGRAPHIC
         
         ARTIE_CORPUS: string: the path to the artie-bias-corpus.tsv file provided in this repo under data/.
         PREDICTIONS:  string: prediction TSV(s) for the models you wish to compare. If more than one, then comma-separated

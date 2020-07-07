@@ -31,13 +31,13 @@ Once you have the proper environment, you can perform the following two analyses
 1. Finding bias in a single model (male vs female):
 
 ```
-(artie) $ python detect_bias.py "data/artie-bias-corpus.tsv" "word" "model_A_predictions.tsv" "male,female"
+(artie) $ python detect_bias.py "data/artie-bias-corpus.tsv" "model_A_predictions.tsv" "male,female"
 ```
 
 2. Finding difference between two models (for female voices):
 
 ```
-(artie) $ python detect_bias.py "data/artie-bias-corpus.tsv" "word" "model_A_predictions.tsv,model_B_predictions.tsv" "female"
+(artie) $ python detect_bias.py "data/artie-bias-corpus.tsv" "model_A_predictions.tsv,model_B_predictions.tsv" "female"
 ```
 
 
