@@ -1,6 +1,6 @@
 # Artie Bias Corpus
 
-This repo includes text and code relating to the Artie Bias Corpus, and is intended for detecting demographic bias in ASR systems.
+This repo includes transcrtipts and tools for the Artie Bias Corpus. The intended use of both the code and the data is to detect demographic bias in speech technology systems. You can find more information in the blog post [1](https://www.artie.com/blog/the-artie-bias-corpus) or the academic publication [2](http://www.lrec-conf.org/proceedings/lrec2020/pdf/2020.lrec-1.796.pdf).
 
 ### Requirements
 
