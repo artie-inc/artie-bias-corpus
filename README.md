@@ -1,6 +1,6 @@
 # Artie Bias Corpus
 
-This repo includes transcrtipts and tools for the Artie Bias Corpus. You can download the audio of the corpus here [[0](http://ml-corpora.artie.com/artie-bias-corpus.tar.gz)]The intended use of both the code and the data is to detect demographic bias in speech technology systems. You can find more information in the blog post [[1](https://www.artie.com/blog/the-artie-bias-corpus)] or the academic publication [[2](http://www.lrec-conf.org/proceedings/lrec2020/pdf/2020.lrec-1.796.pdf)].
+This repo includes transcrtipts and tools for the Artie Bias Corpus. You can download the audio of the corpus here [[0](http://ml-corpora.artie.com/artie-bias-corpus.tar.gz)]. The intended use of both the code and the data is to detect demographic bias in speech technology systems. You can find more information in the blog post [[1](https://www.artie.com/blog/the-artie-bias-corpus)] or the academic publication [[2](http://www.lrec-conf.org/proceedings/lrec2020/pdf/2020.lrec-1.796.pdf)].
 
 ### Requirements
 
