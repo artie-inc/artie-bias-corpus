@@ -11,7 +11,7 @@ We will be using this data set to judge the performance of a speech recognition 
 
 ### Children
 
-There are children in this dataset. When you hear what you think is a child, please make note. We will remove the sentences before release.
+There are children's voices in Common Voice. When you hear what you think is a child, please make note. We will remove the sentences before release.
 
 ## Specific Examples:
 
