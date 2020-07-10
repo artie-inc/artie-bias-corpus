@@ -113,7 +113,6 @@ $ cut -d"   " -f 6 artie-bias-corpus.tsv | sort | uniq -c
 ```
 $ cut -d"   " -f 7 artie-bias-corpus.tsv | sort | uniq -c
     257 female
-      1 gender
    1431 male
      20 NA
       4 other
