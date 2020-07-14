@@ -30,7 +30,7 @@ Organization: Artie, Inc.
 
 ## Composition
 
-*Most of these questions are intended to provide dataset consumers with the information they need to make informed decisions about using the dataset for specific tasks. The answers to some of these questions reveal information about compliance with the EU’s General Data Protection Regulation (GDPR) or comparable regulations in other jurisdictions.*
+*Most of these questions are intended to provide dataset consumers with the information they need to make informed decisions about using the dataset for specific tasks.*
 
 1. **What do the instances that comprise the dataset represent (e.g. documents, photos, people, countries)?** Are there multiple types of instances (e.g. movies, users, and ratings; people and interactions between them; nodes and edges)? Please provide a description.
 
