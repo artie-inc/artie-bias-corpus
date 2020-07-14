@@ -1,6 +1,6 @@
 # Datasheet: The Artie Bias Corpus
 
-Author: Josh Meyer
+Author: Josh Meyer, PhD
 
 Organization: Artie, Inc.
 
