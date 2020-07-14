@@ -4,7 +4,7 @@ This repo includes processed transcrtipts and tools for the Artie Bias Corpus. Y
 
 ## Datasheet
 
-You may find the Artie Bias Corpus Datasheet in the `data/` directory. Please review before use.
+You may find the Artie Bias Corpus [Datasheet](/data/DATASHEET.md) in the `data/` directory. Please review before use.
 
 
 # Using the Tools
